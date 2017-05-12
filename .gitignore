@@ -1,0 +1,28 @@
+# Mac OS X files that are not needed.
+*.DS_Store
+
+# IDE specific Files
+.idea/*
+
+# Node.js modules should not be kept in version control.  Install them
+# using "npm install".
+node_modules
+
+subscriptions_db
+/dbs/*
+/admin_dbs/*
+/bob/*
+/_users/*
+/_replicator/*
+!.gitkeep
+
+# Local environment variables
+*.env
+
+*.log
+
+# others
+*.old
+
+# server logs
+logs/*.log
