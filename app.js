@@ -9,6 +9,7 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 
 var PouchDB = require('pouchdb');
+require('pouchdb-all-dbs')(PouchDB);
 
 var app = express();
 
@@ -59,6 +60,15 @@ router.delete('/:dbName', (req, res, next) => {
     .catch((err) => {
       console.log(err);
       res.sendStatus(500);
+    });
+});
+
+router.get('/listAll', (req, res, next) => {
+  console.log("listing all dbs");
+  PouchDB.allDbs()
+    .then((dbs) => {
+      res.status(200).json(JSON.stringify(dbs));
+      next();
     });
 });
 
