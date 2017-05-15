@@ -30,15 +30,22 @@ var expressPouchDB = require('express-pouchdb')(PouchDB);
 app.use('/users', users);
 
 var db = new PouchDB('bob');
+var db2 = new PouchDB('bob2');
 
 db.put({
   _id: "mydoc",
   title: 'bob'
 })
 .then((response) => {
-  db.put({
+  return db.put({
     _id: "mydoc2",
     title: 'bob2'
+  });
+})
+.then((response) => {
+  return db2.put({
+    _id: "mydoc3",
+    title: 'bob3'
   });
 });
 
