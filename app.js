@@ -36,6 +36,10 @@ db.put({
   title: 'bob'
 })
 .then((response) => {
+  db.put({
+    _id: "mydoc2",
+    title: 'bob2'
+  });
 });
 
 var router = new express.Router();
