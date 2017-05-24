@@ -27,18 +27,6 @@ db.put({
   });
 });
 
-var router = new express.Router();
-
-router.get('/listAll', (req, res, next) => {
-  console.log("listing all dbs");
-  PouchDB.allDbs()
-    .then((dbs) => {
-      res.status(200).json(JSON.stringify(dbs));
-      next();
-    });
-});
-
-router.use(expressPouchDB);
-app.use(router);
+app.use(expressPouchDB);
 
 module.exports = app;
