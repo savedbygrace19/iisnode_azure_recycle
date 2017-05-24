@@ -35,17 +35,6 @@ db.put({
 });
 
 var router = new express.Router();
-router.delete('/:dbName', (req, res, next) => {
-  console.log("deleting db");
-  PouchDB.destroy(req.params.dbName)
-    .then(() => {
-      res.sendStatus(200);
-    })
-    .catch((err) => {
-      console.log(err);
-      res.sendStatus(500);
-    });
-});
 
 router.get('/listAll', (req, res, next) => {
   console.log("listing all dbs");
